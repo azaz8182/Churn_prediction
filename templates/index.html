@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Churn Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Churn Prediction</h2>
+        <form action="/predict" method="post">
+
+            <label for="CreditScore">Credit card Score:</label>
+            <input type="number" name="CreditScore" required>
+            
+            <label for="Geography">Country:</label>
+            <input type="character" name="Geography" required>
+            
+            <label for="Gender">Gender:</label>
+            <input type="character" name="Gender" required>
+
+            <label for="Age">Age:</label>
+            <input type="number" name="Age" required>
+
+            <label for="Tenure">Tenure (In Years):</label>
+            <input type="number" name="Tenure" required>
+
+            <label for="Balance">Account Balance:</label>
+            <input type="number" name="Balance" required>
+
+            <label for="HasCrCard">Has Cr Card? (Yes or No):</label>
+            <input type="character" name="HasCrCard" required>
+
+            <label for="IsActiveMember">Active Member (Yes or No):</label>
+            <input type="character" name="IsActiveMember" required>
+
+            <label for="EstimatedSalary">Estimated Salary:</label>
+            <input type="number" name="EstimatedSalary" required>
+
+
+             <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
