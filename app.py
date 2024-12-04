@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # Load the trained model
-model = keras.models.load_model('churn_1.h5')
+model = keras.models.load_model('churn_2.h5')
 
 app=Flask(__name__,template_folder='templates')
 
@@ -31,7 +31,7 @@ def predict():
     final_features = pd.DataFrame([Credit,Country,Gender,Age,TEnure,BAlance,Card,Member,Salary],columns=['CreditScore','Geography','Gender','Age','Tenure','Balance','HasCrCard','IsActiveMember','EstimatedSalary'])
     final_features.replace(to_replace={'no':1,'yes':2,'No':1,'Yes':2,'NO':1,'YES':2},inplace=True)
     final_features["Gender"].replace(to_replace={'MALE':2,'FEMALE':1,'Male':2,'Female':1,'male':2,'female':1},inplace=True)
-    final_features['Geography'].replace(to_replace={'FRANCE':0,'Frace':0,'france':0,'Germany':1,'GERMANY':1,'germany':1,'Spain':2,'SPAIN':2,'spain':2},inplace=True)
+    final_features['Geography'].replace(to_replace={'FRANCE':0,'France':0,'france':0,'Germany':1,'GERMANY':1,'germany':1,'Spain':2,'SPAIN':2,'spain':2},inplace=True)
     ss = StandardScaler()
     final = ss.fit_transform(final_features)
     
