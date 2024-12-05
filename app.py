@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # Load the trained model
-model = keras.models.load_model('churn_2.h5')
+model = keras.models.load_model('churn_3.h5')
 
 app=Flask(__name__,template_folder='templates')
 
